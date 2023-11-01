@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main()
 {
+
+    srand(time(NULL));
 
     int matriz[3][5], l, c, soma = 0;
 
@@ -9,15 +13,17 @@ int main()
     {
         for (c = 0; c < 5; c++)
         {
+            matriz[l][c] = rand() % 100;
+            printf("%2d ", matriz[l][c]);
             if (c == 4)
             {
-                soma = soma + c;
+                soma = soma + matriz[l][c];
             }
         }
+        printf("\n");
     }
 
-    matriz[3][5] = soma;
-    printf("%d", matriz[3][5]);
+    printf("Soma da ultima coluna: %d", soma);
 
     return 0;
 }
